@@ -1,2 +1,5 @@
-# eds223-in-class-labs
-Weekly labs in EDS 223
+# EDS 223 Weekly Lab Sessions
+
+This repository contains weekly lab projects for MEDS EDS 223.
+
+## **Author:** Zach Loo

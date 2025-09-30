@@ -1,5 +1,6 @@
-# EDS 223 Weekly Lab Sessions
+# EDS 223: Geospatial Analysis & Remote Sensing
+## Weekly Lab Sessions
 
 This repository contains weekly lab projects for MEDS EDS 223.
 
-## **Author:** Zach Loo
+#### **Author:** Zach Loo

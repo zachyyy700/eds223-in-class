@@ -42,9 +42,9 @@ There are MANY different ways to make maps in R, all with different pros/cons. C
 
 
 ```{r}
-install.packages("sf")
-install.packages("stars")
-install.packages("tmap")
+# install.packages("sf")
+# install.packages("stars")
+# install.packages("tmap")
 ```
 
 ```{r}
@@ -481,7 +481,8 @@ Similar to the `theme()` function in `ggplot2`, the `tm_layout()` function in `t
 tm_shape(world_vector) +
   tm_polygons(fill = 'wb_income_region') +
   tm_title(text = 'Global Income', frame = TRUE, frame.color = 'blue') +
-  tm_layout(style = 'beaver', bg.color = 'grey59')
+  tm_layout(style = 'beaver', outer.bg.color = '#f2ff49') 
+
 ```
 
 
@@ -491,13 +492,16 @@ tm_shape(world_vector) +
 One of the most powerful aspects of `tmap` is the ease of creating interactive maps. `tmap` has two modes `"plot"` which creates static maps and `"view"` which creates interactive maps that can be easily embedded in quarto docs. It's as easy as using the `tmap_mode()`!
 
 ```{r}
+tmap_mode("view")
 
+tm_shape(world_vector) +
+  tm_polygons(fill = "gdp_per_cap")
 ```
 
 To return to regular plotting mode, simply reset `tmap_mode`.
 
 ```{r}
-
+tmap_mode("plot")
 ```
 
 ## 8. Saving maps
@@ -505,7 +509,10 @@ To return to regular plotting mode, simply reset `tmap_mode`.
 Maps can be stored as objects for for adding additional layers and saving programmatically. Maps can be saved directly in `tmap` using the `tm_save()` function. 
 
 ```{r}
+map <- tm_shape(world_vector) +
+  tm_polygons(fill = "gdp_per_cap")
 
+tmap_save(map, here::here("week1", "tmap-example.png")) # Currently throws error
 
 ```
 

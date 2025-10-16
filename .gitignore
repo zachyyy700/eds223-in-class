@@ -51,4 +51,6 @@ rsconnect/
 # Ignore all data
 week*/data/
 
-# test
+# .DS_Store
+.DS_Store
+week*/.DS_Store

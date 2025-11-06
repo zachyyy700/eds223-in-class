@@ -401,3 +401,24 @@ map5 <- tm_shape(ndwi_rast) +
 
 tmap_arrange(map1, map2, map3, map4, map5)
 ```
+
+```{r}
+# NDMI: measures moisture in plants. Higher values = more water content in vegetation
+# define NDMI as the normalized difference between NIR and SWIR
+ndmi_fun <- function(nir, swir){
+  (nir - swir) / (nir + swir)
+}
+
+# apply NDVI function to Landsat bands 3 & 4
+ndmi_rast <- lapp(L7[[c(4, 5)]], fun = ndmi_fun)
+names(ndmi_rast) <- "NDMI"
+```
+
+```{r}
+# Plot NDMI
+tm_shape(ndmi_rast) +
+  tm_raster(col.scale = tm_scale_continuous(values = 'brewer.blues'),
+            col.legend = tm_legend(orientation = 'portrait')) +
+  tm_title("NDMI")
+```
+

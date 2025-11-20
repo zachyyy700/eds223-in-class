@@ -379,7 +379,10 @@ landsat_df %>%
   arrange(cluster) %>% 
   knitr::kable(digits = 2, 
                caption = "Mean Spectral Values by Cluster")
-
+# Cluster 3 = green vegetation
+# Cluster 4 = water
+# Cluster 1 = soil/dead grass
+# Cluster 2 = urban
 ```
 
 ```{r}
